@@ -107,6 +107,16 @@ export class SuitPay {
 
             user.activeDate = Date.now();
 
+            if (user.affiliateCode) {
+                const affiliate = this.brain.models.users.find({ email: user.affiliateCode }) as User;
+
+                if (affiliate) {
+                    affiliate.balance += (transaction.value / 2);
+
+                    this.brain.models.users.update({ email: affiliate.email }, affiliate);
+                }
+            }
+
             res.status(200).end();
         });
     }

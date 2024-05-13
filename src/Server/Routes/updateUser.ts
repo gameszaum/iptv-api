@@ -18,7 +18,7 @@ export default class UpdateUser implements Route {
     public path: string = "/updateUser";
 
     public async execute(req: Request, res: Response): Promise<Response> {
-        const { email, activeDate, banned } = req.body as { email: string; activeDate: number; banned: boolean };
+        const { email, activeDate, banned, affiliate } = req.body as { email: string; activeDate: number; banned: boolean, affiliate: boolean };
 
         const token = req.headers["authorization"] as string;
 
@@ -34,6 +34,8 @@ export default class UpdateUser implements Route {
             if (activeDate !== undefined) find.activeDate = activeDate;
 
             if (banned !== undefined) find.banned = banned;
+
+            if (affiliate !== undefined) find.affiliate = affiliate;
 
             this.server.brain.models.users.update({ email }, find);
 

@@ -5,4 +5,7 @@ export type User = {
     lastLogin: number;
     activeDate: number;
     banned: boolean;
+    affiliate: boolean;
+    affiliateCode: string;
+    balance: number;
 }

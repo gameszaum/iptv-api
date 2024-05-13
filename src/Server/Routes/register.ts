@@ -18,7 +18,7 @@ export default class Register implements Route {
     public path: string = "/register";
 
     public async execute(req: Request, res: Response): Promise<Response> {
-        const { email, password } = req.body as { email: string; password: string };
+        const { email, password, affiliateCode } = req.body as { email: string; password: string, affiliateCode: string };
 
         const find = this.server.brain.models.users.find({
             email: email
@@ -32,7 +32,10 @@ export default class Register implements Route {
             createdAt: Date.now(),
             lastLogin: Date.now(),
             activeDate: 0,
-            banned: false
+            banned: false,
+            balance: 0,
+            affiliate: false,
+            affiliateCode: affiliateCode || "",
         };
 
         this.server.brain.models.users.insert(user);
