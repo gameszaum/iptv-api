@@ -101,9 +101,15 @@ export class ChannelsModel extends Model {
 
                     if (category) {
                         category.channels.push(div);
+
+                        if (!this.find({ code: div.code })) {
+                            this.insert(div);
+                        }
+                        this.brain.log(`Channel ${div.name} loaded`, { tags: ["Channel"], color: "green" });
                     }
-                    console.log(div);
                 }
+                this.brain.log("Channels loaded", { tags: ["Channels"], color: "green" });
+
                 await browser.close();
             });
         });
