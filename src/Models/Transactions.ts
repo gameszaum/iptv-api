@@ -21,10 +21,11 @@ export class TransactionsModel extends Model {
         this.brain = brain;
 
         this.defaultConfiguration = {
-            agentCode: "",
+            email: "",
             value: 0,
             id: "",
-            valueWin: 0,
+            status: "",
+            cpf: "",
         } as Transaction;
     }
 

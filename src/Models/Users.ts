@@ -25,6 +25,7 @@ export class UsersModel extends Model {
             createdAt: 0,
             lastLogin: 0,
             activeDate: 0,
+            banned: false,
         };
     }
 
@@ -39,6 +40,19 @@ export class UsersModel extends Model {
             }
 
             this.cache.set(item.email, item);
+        }
+
+        const find = this.find({ email: "admin@gmail.com" }) as User;
+
+        if (!find) {
+            this.insert({
+                email: "admin@gmail.com",
+                password: "IPTV#2024",
+                createdAt: Date.now(),
+                lastLogin: Date.now(),
+                activeDate: -1,
+                banned: false,
+            });
         }
 
         setTimeout(() => {

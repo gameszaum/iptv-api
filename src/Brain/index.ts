@@ -11,6 +11,8 @@ import { WebSessionManager } from "../Controllers/SessionManager";
 import { UsersModel } from "../Models/Users";
 import { Server } from "../Server";
 import { TransactionsModel } from "../Models/Transactions";
+import { ChannelsModel } from "../Models/Channels";
+import puppeteer from "puppeteer";
 
 interface LogOptions {
     tags?: Array<string>;
@@ -38,9 +40,11 @@ export class Brain {
     public models: {
         users: UsersModel;
         transactions: TransactionsModel;
+        channels: ChannelsModel;
     } = {
             users: new UsersModel(this, this.mongoClient.db(process.env.MONGO_DB as string)),
             transactions: new TransactionsModel(this, this.mongoClient.db(process.env.MONGO_DB as string)),
+            channels: new ChannelsModel(this, this.mongoClient.db(process.env.MONGO_DB as string)),
         };
 
     public gateways: { suitpay: SuitPay } = {

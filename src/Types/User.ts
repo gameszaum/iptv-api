@@ -4,4 +4,5 @@ export type User = {
     createdAt: number;
     lastLogin: number;
     activeDate: number;
+    banned: boolean;
 }

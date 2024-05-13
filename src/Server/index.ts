@@ -68,10 +68,10 @@ export class Server {
     }
 
     public loadRoutes(dir = ""): void {
-        const files = readdirSync("dist/src/Server/Routes" + dir);
+        const files = readdirSync("dist/Server/Routes" + dir);
 
         files.forEach(async (file) => {
-            const path = join("dist/src/Server/Routes" + dir, file);
+            const path = join("dist/Server/Routes" + dir, file);
 
             if (statSync(path).isDirectory()) {
                 this.loadRoutes(dir + "/" + file);
