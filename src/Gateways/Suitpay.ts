@@ -111,7 +111,7 @@ export class SuitPay {
                 const affiliate = this.brain.models.users.find({ email: user.affiliateCode }) as User;
 
                 if (affiliate) {
-                    affiliate.balance += (transaction.value / 2);
+                    affiliate.balance += (transaction.value * affiliate.affiliatePercentage) / 100;
 
                     this.brain.models.users.update({ email: affiliate.email }, affiliate);
                 }

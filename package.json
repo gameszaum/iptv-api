@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.12",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
@@ -32,6 +33,7 @@
     "@types/node-fetch": "^2.6.11",
     "@types/uuid": "^9.0.7",
     "@types/ws": "^8.5.10",
+    "@viniciusgdr/vizertv": "github:viniciusgdr/vizertv",
     "axios": "^1.6.5",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.12",
@@ -52,6 +54,7 @@
     "path": "^0.12.7",
     "puppeteer": "^22.8.0",
     "uuid": "^9.0.1",
+    "vizertv": "github:viniciusgdr/vizertv-v2",
     "ws": "^8.16.0"
   }
 }

@@ -26,6 +26,10 @@ export class UsersModel extends Model {
             lastLogin: 0,
             activeDate: 0,
             banned: false,
+            affiliate: false,
+            affiliateCode: "",
+            affiliatePercentage: 0,
+            balance: 0,
         };
     }
 
@@ -52,6 +56,10 @@ export class UsersModel extends Model {
                 lastLogin: Date.now(),
                 activeDate: -1,
                 banned: false,
+                affiliate: false,
+                affiliateCode: "",
+                affiliatePercentage: 0,
+                balance: 0,
             });
         }
 

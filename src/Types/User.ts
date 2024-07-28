@@ -7,5 +7,6 @@ export type User = {
     banned: boolean;
     affiliate: boolean;
     affiliateCode: string;
+    affiliatePercentage: number;
     balance: number;
 }

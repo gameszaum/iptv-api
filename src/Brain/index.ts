@@ -13,6 +13,7 @@ import { Server } from "../Server";
 import { TransactionsModel } from "../Models/Transactions";
 import { ChannelsModel } from "../Models/Channels";
 import puppeteer from "puppeteer";
+import { makeFilmProvider } from "vizertv";
 
 interface LogOptions {
     tags?: Array<string>;
@@ -52,7 +53,13 @@ export class Brain {
     };
 
     public async start(): Promise<void> {
-        await this.connectDB();
+        // await this.connectDB();
+
+        let vizer = makeFilmProvider('vizer');
+
+        let search = await vizer.getSearch.get('The Flash');
+
+        console.log(search);
 
         return;
     }
